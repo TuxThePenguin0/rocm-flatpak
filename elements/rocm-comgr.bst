@@ -12,7 +12,7 @@ depends:
 - rocm-device-libs.bst
 
 variables:
-  command-subdir: lib/comgr
+  command-subdir: "amd/comgr"
   cmake-local: |
     -DCMAKE_C_COMPILER="%{prefix}/bin/clang" \
     -DCMAKE_CXX_COMPILER="%{prefix}/bin/clang++"
@@ -22,6 +22,6 @@ config:
 
 sources:
 - kind: git_tag
-  url: rocm:ROCm-CompilerSupport
+  url: rocm:llvm-project
   track: "%{rocmtag}"
-  ref: rocm-6.0.2-0-g685852bc27113baeb45862dbf71b556e5be74290
+  ref: rocm-6.3.3-0-ge5bf7e55c91490b07c49d8960fa7983d864936c4

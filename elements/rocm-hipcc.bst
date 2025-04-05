@@ -15,10 +15,12 @@ variables:
     -DCMAKE_C_COMPILER="%{prefix}/bin/clang" \
     -DCMAKE_CXX_COMPILER="%{prefix}/bin/clang++"
 
+  command-subdir: "amd/hipcc"
+
 sources:
 - kind: git_tag
-  url: rocm:HIPCC
+  url: rocm:llvm-project
   track: "%{rocmtag}"
-  ref: rocm-6.0.2-0-g7ae382ceec92014aa729a4d6773515b42dc3a209
+  ref: rocm-6.3.3-0-ge5bf7e55c91490b07c49d8960fa7983d864936c4
 - kind: patch
   path: patch/0001-Fix-hipcc-stdc++fs.patch

@@ -1,0 +1,14 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 668c062e..b9dc67c6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -48,6 +48,9 @@ project("rocr")
+ 
+ set(CMAKE_VERBOSE_MAKEFILE ON)
+ 
++# Unsure why this isn't working through the CLI flag
++set(BUILD_SHARED_LIBS ON)
++
+ if (NOT DEFINED BUILD_ROCR)
+   set(BUILD_ROCR ON)
+ endif()

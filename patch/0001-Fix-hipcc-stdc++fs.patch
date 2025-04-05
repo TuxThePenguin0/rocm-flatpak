@@ -9,9 +9,9 @@ Subject: [PATCH] Fix hipcc build not to link libstdc++fs.so
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 90743ab..4ae88bd 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -15,9 +15,6 @@ endif()
+--- a/amd/hipcc/CMakeLists.txt
++++ b/amd/hipcc/CMakeLists.txt
+@@ -18,9 +18,6 @@ endif()
  set(CMAKE_CXX_STANDARD 17)
  set(CMAKE_CXX_STANDARD_REQUIRED True)
  

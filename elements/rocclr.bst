@@ -26,8 +26,9 @@ variables:
     -DCLR_BUILD_OCL=ON \
     -DCLR_BUILD_HIP=ON \
     -DHIP_COMMON_DIR="%{build-root}/hip" \
-    -DHIPCC_BIN_DIR="%{prefix}/hip/bin" \
-    -DBUILD_ICD=OFF
+    -DHIPCC_BIN_DIR="%{prefix}/bin" \
+    -DBUILD_ICD=OFF \
+    -DHIP_ENABLE_ROCPROFILER_REGISTER=OFF
 
 config:
   strip-commands: []
@@ -44,9 +45,11 @@ sources:
   url: rocm:clr
   track: "%{rocmtag}"
   directory: clr
-  ref: rocm-6.0.2-0-g204d35d16ef5c2c1ea1a4bb25442908a306c857a
+  ref: rocm-6.3.3-0-ga9a80e791da96df2abca177321d11a0af5f1064a
 - kind: git_tag
   url: rocm:HIP
   track: "%{rocmtag}"
   directory: hip
-  ref: rocm-6.0.2-0-g3156cd689d4bb28fd2ee98db79823ae8cc3ad038
+  ref: rocm-6.3.3-0-g4f263b6e90770c55c694af6beb0924db084b952f
+- kind: patch
+  path: patch/0001-Stop-clr-from-using-etc-os-release.patch
