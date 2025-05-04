@@ -1,17 +1,17 @@
-From 40120cbcfb703f179e83d141875c793698564fcc Mon Sep 17 00:00:00 2001
+From f6c4538f3f08ed98b07b5d74124a45528e5d8eba Mon Sep 17 00:00:00 2001
 From: pobthebuilder <pobthebuilder@pobthebuilder.org>
 Date: Tue, 23 Jan 2024 21:34:22 -0800
 Subject: [PATCH] Fix libnuma to use pkg_config
 
 ---
- CMakeLists.txt | 6 ++++--
+ libhsakmt/CMakeLists.txt | 6 ++++--
  1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 7e78bfb..341a622 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -162,7 +162,8 @@ find_package(PkgConfig)
+diff --git a/libhsakmt/CMakeLists.txt b/libhsakmt/CMakeLists.txt
+index 431721b3..73c8d3c5 100644
+--- a/libhsakmt/CMakeLists.txt
++++ b/libhsakmt/CMakeLists.txt
+@@ -160,7 +160,8 @@ find_package(PkgConfig)
  find_library(LIBC NAMES c REQUIRED)
  find_library(NUMA NAMES numa REQUIRED)
  message(STATUS "LIBC:" ${LIBC})
@@ -21,18 +21,18 @@ index 7e78bfb..341a622 100644
  
  ## If environment variable DRM_DIR is set, the script
  ## will pick up the corresponding libraries from that path.
-@@ -181,9 +182,10 @@ else()
-     include_directories(${DRM_AMDGPU_INCLUDE_DIRS})
- endif()
+@@ -172,9 +173,10 @@ pkg_check_modules(DRM REQUIRED IMPORTED_TARGET libdrm)
+ pkg_check_modules(DRM_AMDGPU REQUIRED IMPORTED_TARGET libdrm_amdgpu)
+ include_directories(${DRM_AMDGPU_INCLUDE_DIRS})
  include_directories(${DRM_INCLUDE_DIRS})
 +include_directories(${NUMA_INCLUDE_DIRS})
  
  target_link_libraries ( ${HSAKMT_TARGET}
--  PRIVATE ${DRM_LDFLAGS} ${DRM_AMDGPU_LDFLAGS} pthread rt c numa
-+  PRIVATE ${DRM_LDFLAGS} ${DRM_AMDGPU_LDFLAGS} pthread rt ${LIBC} ${NUMA_LDFLAGS}
+-  PRIVATE ${DRM_LDFLAGS} ${DRM_AMDGPU_LDFLAGS} pthread rt c numa ${CMAKE_DL_LIBS}
++  PRIVATE ${DRM_LDFLAGS} ${DRM_AMDGPU_LDFLAGS} pthread rt ${LIBC} ${NUMA_LDFLAGS} ${CMAKE_DL_LIBS}
  )
  
  target_compile_options(${HSAKMT_TARGET} PRIVATE ${DRM_CFLAGS} ${HSAKMT_C_FLAGS})
 -- 
-2.41.0
+2.49.0
 
