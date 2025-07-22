@@ -20,6 +20,6 @@ sources:
 - kind: git_tag
   url: rocm:llvm-project
   track: "%{rocmtag}"
-  ref: rocm-6.4.1-0-gc87081df219c42dc27c5b6d86c0525bc7d01f727
+  ref: rocm-6.4.2-0-gd366fa84f3fdcbd4b10847ebd5db572ae12a34fb
 - kind: patch
   path: patch/0001-Fix-hipcc-stdc++fs.patch
