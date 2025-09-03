@@ -30,6 +30,6 @@ sources:
 - kind: git_tag
   url: rocm:ROCR-Runtime
   track: "%{rocmtag}"
-  ref: rocm-6.4.2-0-g044c4226baf27401483b2903400647eae96e6f44
+  ref: rocm-6.4.3-0-g044c4226baf27401483b2903400647eae96e6f44
 - kind: patch
   path: patch/0001-Fix-libnuma-to-use-pkg_config.patch

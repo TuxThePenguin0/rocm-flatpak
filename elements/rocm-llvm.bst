@@ -35,4 +35,4 @@ sources:
 - kind: git_tag
   url: rocm:llvm-project
   track: "%{rocmtag}"
-  ref: rocm-6.4.2-0-gd366fa84f3fdcbd4b10847ebd5db572ae12a34fb
+  ref: rocm-6.4.3-0-gd366fa84f3fdcbd4b10847ebd5db572ae12a34fb
