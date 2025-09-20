@@ -24,7 +24,7 @@ sources:
 - kind: git_tag
   url: rocm:rocminfo
   track: "%{rocmtag}"
-  ref: rocm-6.4.3-0-g6ea2ba38c8e1ab2899acf66878148b1192fd0bee
+  ref: rocm-7.0.1-0-gaec5d6fa53152668207d523ac481cc1ec9fb7298
 - kind: patch
   path: patch/0001-Find-drm-and-drm_amdgpu-paths.patch
 
